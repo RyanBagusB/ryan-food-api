@@ -1,26 +1,24 @@
 const express = require('express');
-const ApiController = require('./api-controller');
-
+const bodyParser = require('body-parser');
 const app = express();
 const PORT = 5000;
 
-// Middleware to parse JSON requests
-app.use(express.json());
+const ApiController = require('./api-controller/api-controller');
 
-// Create (POST) a new pet
-app.post('/pets', ApiController.create);
+app.use(bodyParser.json());
 
-// Read (GET) all pets
-app.get('/pets', ApiController.getAll);
+app.listen(PORT, () => console.log(`server berjalan pada http://localhost:${PORT}`));
 
-// Read (GET) a specific pet by ID
-app.get('/pets/:id', ApiController.getById);
+app.get('/', ApiController.getAll);
 
-// Update (PUT) a pet by ID
-app.put('/pets/:id', ApiController.update);
+app.post('/', (req, res) => {
+    res.send("post");
+});
 
-// Delete (DELETE) a pet by ID
-app.delete('/pets/:id', ApiController.remove);
+app.put('/', (req, res) => {
+    res.send("update");
+});
 
-// Start the server
-app.listen(PORT, () => console.log(`Server is running at http://localhost:${PORT}`));
+app.delete('/', (req, res) => {
+    res.send("delete");
+});
