@@ -13,11 +13,11 @@ const ApiController = {
 
     create: async (req, res) => {
         try {
-            const petName = request.query.petName;
-            const ownerName = request.query.ownerName;
+            const petName = request.body.petName;
+            const ownerName = request.body.ownerName;
             if (!petName || !ownerName) throw new Error('Pet and owner names required');
             await sql`INSERT INTO Pets (Name, Owner) VALUES (${petName}, ${ownerName});`;
-            return response.status(200).json({ "message": "Berhasil menambahkan pet" });
+            return response.status(200).json({ message: "Berhasil menambahkan pet" });
         } catch (error) {
             console.error(error);
             res.status(500).json({ error: 'Internal Server Error' });
