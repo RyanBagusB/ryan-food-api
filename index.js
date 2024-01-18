@@ -1,5 +1,4 @@
 const express = require('express');
-const { sql } = require('@vercel/postgres');
 const ApiController = require('./api-controller');
 
 const app = express();
