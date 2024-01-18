@@ -8,9 +8,7 @@ app.listen(PORT, () => console.log(`server berjalan pada http://localhost:${PORT
 
 app.get('/', ApiController.getAll);
 
-app.post('/', (req, res) => {
-    res.send("post");
-});
+app.post('/', ApiController.create);
 
 app.put('/', (req, res) => {
     res.send("update");

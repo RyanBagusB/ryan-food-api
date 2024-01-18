@@ -10,6 +10,17 @@ const ApiController = {
             return res.status(500).json({ error });
         }
     },
+
+    create: async (req, res) => {
+        try {
+            const { name, owner } = req.body;
+            const result = await sql`INSERT INTO Pets (Name, Owner) VALUES (${name}, ${owner}) RETURNING *`;
+            res.status(201).json({ pet: result.rows[0] });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    },
 }
 
 module.exports = ApiController
