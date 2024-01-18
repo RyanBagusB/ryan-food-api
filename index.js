@@ -1,24 +1,27 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const { sql } = require('@vercel/postgres');
+const ApiController = require('./api-controller');
+
 const app = express();
 const PORT = 5000;
 
-const ApiController = require('./api-controller/api-controller');
+// Middleware to parse JSON requests
+app.use(express.json());
 
-app.use(bodyParser.json());
+// Create (POST) a new pet
+app.post('/pets', ApiController.create);
 
-app.listen(PORT, () => console.log(`server berjalan pada http://localhost:${PORT}`));
+// Read (GET) all pets
+app.get('/pets', ApiController.getAll);
 
-app.get('/', ApiController.getAll);
+// Read (GET) a specific pet by ID
+app.get('/pets/:id', ApiController.getById);
 
-app.post('/', (req, res) => {
-    res.send("post");
-});
+// Update (PUT) a pet by ID
+app.put('/pets/:id', ApiController.update);
 
-app.put('/', (req, res) => {
-    res.send("update");
-});
+// Delete (DELETE) a pet by ID
+app.delete('/pets/:id', ApiController.remove);
 
-app.delete('/', (req, res) => {
-    res.send("delete");
-});
+// Start the server
+app.listen(PORT, () => console.log(`Server is running at http://localhost:${PORT}`));
