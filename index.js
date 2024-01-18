@@ -14,6 +14,4 @@ app.put('/', (req, res) => {
     res.send("update");
 });
 
-app.delete('/', (req, res) => {
-    res.send("delete");
-});
+app.delete('/:id', ApiController.remove);
