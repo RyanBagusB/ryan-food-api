@@ -21,7 +21,7 @@ const ApiController = {
           }
           
           // const pets = await sql`SELECT * FROM Pets;`;
-          return response.status(200).json({ message: req.body });
+          return response.status(200).json({ message: 'tes' });
           
     },
 
