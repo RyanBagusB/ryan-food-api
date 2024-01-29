@@ -10,8 +10,6 @@ app.get('/pets', ApiController.getAll);
 
 app.post('/pets', ApiController.create);
 
-app.put('/', (req, res) => {
-    res.send("update");
-});
+app.put('/', ApiController.remove);
 
 app.delete('/pets/:id', ApiController.remove);
