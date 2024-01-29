@@ -1,6 +1,13 @@
 const express = require('express');
 const app = express();
 const PORT = 5000;
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 const ApiController = require('./api-controller/api-controller');
 
