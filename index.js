@@ -22,4 +22,4 @@ app.post('/pets', ApiController.create);
 
 app.put('/', ApiController.remove);
 
-app.delete('/pets/:id', ApiController.remove);
+app.delete('/pets', ApiController.remove);
