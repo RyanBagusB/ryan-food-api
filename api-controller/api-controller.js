@@ -14,14 +14,14 @@ const ApiController = {
     create: async (req, res) => {
         try {
             const { petName, ownerName } = request.body;
-            if (!petName || !ownerName) throw new Error('Pet and owner names required');
-            await sql`INSERT INTO Pets (Name, Owner) VALUES (${petName}, ${ownerName});`;
+            // if (!petName || !ownerName) throw new Error('Pet and owner names required');
+            // await sql`INSERT INTO Pets (Name, Owner) VALUES (${petName}, ${ownerName});`;
           } catch (error) {
             return response.status(500).json({ error: error.message });
           }
           
-          const pets = await sql`SELECT * FROM Pets;`;
-          return response.status(200).json({ pets });
+          // const pets = await sql`SELECT * FROM Pets;`;
+          return response.status(200).json({ message: request.body });
           
     },
 
