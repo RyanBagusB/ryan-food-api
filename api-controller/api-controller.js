@@ -28,12 +28,8 @@ const ApiController = {
     remove: async (req, res) => {
         try {
             const { id } = req.params;
-            const result = await sql`DELETE FROM Pets WHERE id = ${id} RETURNING *`;
             if (result.rows.length > 0) {
-                res.status(200).json({ message: 'Pet deleted successfully', pet: result.rows[0] });
-            } else {
-                res.status(404).json({ error: 'Pet not found' });
-            }
+                res.status(200).json({ message: id});
         } catch (error) {
             console.error(error);
             res.status(500).json({ error: 'Internal Server Error' });
