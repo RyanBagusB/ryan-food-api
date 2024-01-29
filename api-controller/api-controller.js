@@ -15,7 +15,7 @@ const ApiController = {
         try {
             const { petName, ownerName } = req.body;
             if (!petName || !ownerName) throw new Error('Pet and owner names required');
-            await sql`INSERT INTO Pets (Name, Owner) VALUES (${petName}, ${ownerName});`;
+            // await sql`INSERT INTO Pets (Name, Owner) VALUES (${petName}, ${ownerName});`;
           } catch (error) {
             return response.status(500).json({ error: error.message });
           }
