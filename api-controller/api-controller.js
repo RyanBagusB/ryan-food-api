@@ -13,7 +13,7 @@ const ApiController = {
 
     create: async (req, res) => {
         try {
-            const { petName, ownerName } = req.body;
+            // const { petName, ownerName } = req.body;
             // if (!petName || !ownerName) throw new Error('Pet and owner names required');
             // await sql`INSERT INTO Pets (Name, Owner) VALUES (${petName}, ${ownerName});`;
           } catch (error) {
