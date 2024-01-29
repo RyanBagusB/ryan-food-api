@@ -9,6 +9,9 @@ app.use(
   })
 );
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 const ApiController = require('./api-controller/api-controller');
 
 app.listen(PORT, () => console.log(`server berjalan pada http://localhost:${PORT}`));
