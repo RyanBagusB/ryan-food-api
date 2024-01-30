@@ -12,7 +12,7 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/images', express.static('images'));
+app.use('/images', express.static(__dirname + '/images'));
 
 const ApiController = require('./api-controller/api-controller');
 
