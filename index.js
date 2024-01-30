@@ -12,6 +12,8 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use('/images', express.static('images'));
+
 const ApiController = require('./api-controller/api-controller');
 
 app.listen(PORT, () => console.log(`server berjalan pada http://localhost:${PORT}`));
