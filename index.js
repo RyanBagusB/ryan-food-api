@@ -12,23 +12,20 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const reviewRouter = require('./routes/review.router');
-const menuRouter = require('./routes/menu.router');
-const dishRouter = require('./routes/dish.router');
-const homeRouter = require('./routes/home.router');
-const searchRouter = require('./routes/search.router');
 
-app.use("/api/reviews", reviewRouter);
-app.use("/api/menus", menuRouter);
-app.use("/api/homes", homeRouter);
-app.use("/api/dishes", dishRouter);
-app.use("/api/search", searchRouter);
+const ApiController = require('./api-controller/api-controller');
 
-app.use("/tes", (req, res) => {
-  return res.status(200).json({ message: 'tes' });
-});
+app.listen(PORT, () => console.log(`server berjalan pada http://localhost:${PORT}`));
 
-app.listen(port, () => {
-  console.log(`Server berjalan di http://localhost:${port}`);
+app.get('/pets', ApiController.getAll);
+
+app.post('/pets', ApiController.create);
+
+app.put('/', ApiController.remove);
+
+app.delete('/pets', ApiController.remove);
+
+app.listen(PORT, () => {
+  console.log(`Server berjalan di http://localhost:${PORT}`);
 });
 
