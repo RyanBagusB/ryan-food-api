@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-const ApiController = require('./api-controller/api-controller');
+const ApiController = require('./controllers/dish.controller.js');
 
 app.listen(PORT, () => console.log(`server berjalan pada http://localhost:${PORT}`));
 
