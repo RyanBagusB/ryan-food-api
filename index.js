@@ -13,11 +13,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-const ApiController = require('./controllers/dish.controller.js');
+const dishRouter = require('./routes/dish.router');
+app.use("/api/dishes", dishRouter);
 
 app.listen(PORT, () => console.log(`server berjalan pada http://localhost:${PORT}`));
 
-app.get('/pets', ApiController.getAll);
+// app.get('/pets', ApiController.getAll);
 
 // app.post('/pets', ApiController.create);
 
