@@ -19,11 +19,11 @@ app.listen(PORT, () => console.log(`server berjalan pada http://localhost:${PORT
 
 app.get('/pets', ApiController.getAll);
 
-app.post('/pets', ApiController.create);
+// app.post('/pets', ApiController.create);
 
-app.put('/', ApiController.remove);
+// app.put('/', ApiController.remove);
 
-app.delete('/pets', ApiController.remove);
+// app.delete('/pets', ApiController.remove);
 
 app.listen(PORT, () => {
   console.log(`Server berjalan di http://localhost:${PORT}`);
