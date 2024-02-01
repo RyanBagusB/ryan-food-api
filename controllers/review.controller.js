@@ -18,17 +18,17 @@ const reviewController = {
         try {
             const id = `review-${new Date().getTime()}`;
             const imgUrl = 'images/photo/1';
-            const { name, coment } = req.body;
+            const { name, review_text } = req.body;
         
-            // if (name.length > 10 || coment.length > 60) {
+            // if (name.length > 10 || review_text.length > 60) {
             //   throw new Error('Name should be at most 10 characters and coment should be at most 60 characters');
             // }
         
-            if (!name || !coment) {
-              throw new Error('name and comment are required');
+            if (!name || !review_text) {
+              throw new Error('name and review are required');
             }
         
-            await sql`INSERT INTO review (id, name, coment, imgurl) VALUES (${id}, ${name}, ${coment}, ${imgUrl});`;
+            await sql`INSERT INTO review (id, name, review_text, imgurl) VALUES (${id}, ${name}, ${coment}, ${imgUrl});`;
         
             return res.status(201).json({ message: 'success' });
           } catch (error) {
