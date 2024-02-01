@@ -20,9 +20,9 @@ const reviewController = {
             const imgUrl = 'images/photo/1';
             const { name, coment } = req.body;
         
-            if (name.length > 10 || coment.length > 60) {
-              throw new Error('Name should be at most 10 characters and coment should be at most 60 characters');
-            }
+            // if (name.length > 10 || coment.length > 60) {
+            //   throw new Error('Name should be at most 10 characters and coment should be at most 60 characters');
+            // }
         
             if (!name || !coment) {
               throw new Error('name and comment are required');
