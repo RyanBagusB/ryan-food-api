@@ -11,7 +11,6 @@ app.use(
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use('/images', express.static('images'));
 
 const reviewRouter = require('./routes/review.router');
 const menuRouter = require('./routes/menu.router');
