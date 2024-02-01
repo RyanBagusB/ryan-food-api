@@ -28,7 +28,7 @@ const reviewController = {
               throw new Error('name and review are required');
             }
         
-            await sql`INSERT INTO review (id, name, review_text, imgurl) VALUES (${id}, ${name}, ${coment}, ${imgUrl});`;
+            await sql`INSERT INTO review (id, name, review_text, imgurl) VALUES (${id}, ${name}, ${review_text}, ${imgUrl});`;
         
             return res.status(201).json({ message: 'success' });
           } catch (error) {
