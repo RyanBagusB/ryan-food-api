@@ -17,8 +17,7 @@ const reviewController = {
     create: async(req, res) => {
         try {
             const id = `review-${new Date().getTime()}`;
-            const imgUrl = 'images/photo/1';
-            const { name, review_text } = req.body;
+            const { name, review_text, imgUrl } = req.body;
 
             if (!name || !review_text) {
               throw new Error('name and review are required');
