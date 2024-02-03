@@ -7,7 +7,7 @@ const DrinkController = {
 
             return res.status(200).json({
                 message: 'success',
-                data: drink.rows,
+                data: drinks.rows,
             });
         } catch (error) {
             return res.status(500).json({ error });
