@@ -14,12 +14,12 @@ const searchController = {
             
             const home = await sql`SELECT id, title FROM home`;
             const dish = await sql`SELECT id, title FROM dish`;
-            const menu = await sql`SELECT id, title FROM menu`;
+            const drink = await sql`SELECT id, title FROM drink`;
 
             const data = [
               ...(home.rows || []),
               ...(dish.rows || []),
-              ...(menu.rows || []),
+              ...(drink.rows || []),
             ];
       
             const filteredData = data.filter(item =>
