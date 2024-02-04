@@ -13,7 +13,7 @@ const searchController = {
             }
             
             const home = await sql`SELECT id, title FROM home`;
-            const dish = await sql`SELECT id, title FROM dish`;
+            const dish = await sql`SELECT id, title FROM menu`;
             const drink = await sql`SELECT id, title FROM drink`;
 
             const data = [
